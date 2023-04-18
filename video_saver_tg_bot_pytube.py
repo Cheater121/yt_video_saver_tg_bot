@@ -26,9 +26,9 @@ def download_video(message):
         	return
         
         try:
+        	bot.send_message(message.chat.id, "Starting download video.")
         	yt = YouTube(message.text)
         	stream = yt.streams.filter(progressive=True, file_extension='mp4').first()
-        	bot.send_message(message.chat.id, "Starting download video.")
         	stream.download(filename='video.mp4')
         except Exception as e:
         	logger.exception(f"{e}\n")
