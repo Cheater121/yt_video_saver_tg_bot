@@ -38,6 +38,7 @@ def download_video(message):
         try:
         	with open("video.mp4", "rb") as f:
         		bot.send_video(message.chat.id, f)
+        		bot.send_message(message.chat.id, "You are welcome! You can send me another link any time, i'll wait!")
         except Exception as e: #FileNotFoundError:
         	logger.exception(f"{e}\n")
         	bot.send_message(message.chat.id, "Could not find the downloaded video.")
